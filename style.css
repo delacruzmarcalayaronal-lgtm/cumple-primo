@@ -173,26 +173,54 @@ body {
     z-index: 0;
 }
 
-/* --- FONDO NIEBLA --- */
+/* --- FONDO NIEBLA (CSS PURO, SIN IMAGEN) --- */
 .fondo-niebla {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200%;
-    height: 200%;
-    background: url('https://i.imgur.com/5QfF1mE.png') repeat;
-    opacity: 0.15;
-    animation: moverNiebla 60s linear infinite;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(0,255,100,0.08), transparent 70%),
+                radial-gradient(circle at 80% 80%, rgba(0,255,100,0.06), transparent 70%);
+    animation: moverNiebla 15s ease-in-out infinite alternate;
     z-index: 1;
 }
 
 @keyframes moverNiebla {
-    0% {
+    from {
         transform: translate(0, 0);
     }
-    100% {
-        transform: translate(-50%, -50%);
+    to {
+        transform: translate(-3%, -3%);
     }
+}
+
+/* --- VIDEO SECCIÓN --- */
+.seccion-video {
+    margin: 40px auto;
+    text-align: center;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 700px;
+    box-shadow: 0 0 25px rgba(0, 255, 100, 0.3);
+}
+
+.seccion-video h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.video-contenedor video,
+.video-contenedor iframe {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 100, 0.4);
 }
 
 /* --- RESPONSIVE --- */
@@ -227,30 +255,4 @@ body {
     .slides img {
         height: 200px;
     }
-}
-.seccion-video {
-    margin: 40px auto;
-    text-align: center;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    border-radius: 20px;
-    max-width: 700px;
-    box-shadow: 0 0 25px rgba(0, 255, 100, 0.3);
-}
-
-.seccion-video h2 {
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-    color: #00ff88;
-    text-shadow: 0 0 10px #00ff88;
-}
-
-.video-contenedor video,
-.video-contenedor iframe {
-    width: 100%;
-    max-width: 650px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 100, 0.4);
 }
