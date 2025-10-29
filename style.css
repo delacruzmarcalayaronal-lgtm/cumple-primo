@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- ESTILO GENERAL --- */
+body {
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle at center, #003300, #000000);
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- TARJETA CENTRAL --- */
+.tarjeta {
+    background: rgba(0, 30, 0, 0.8);
+    border: 2px solid #00ff66;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 40px #00ff88;
+    backdrop-filter: blur(8px);
+    animation: entrar 2s ease-in-out;
+    z-index: 10;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+@keyframes entrar {
+    from {
+        transform: scale(0.5) rotate(-10deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+/* --- TÍTULO Y MENSAJE --- */
+.titulo {
+    font-family: "Pirata One", cursive;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    color: #00ff88;
+    text-shadow: 0 0 15px #00ff88, 0 0 25px #006600;
+    letter-spacing: 2px;
+    animation: brillo 3s infinite alternate;
+}
+
+@keyframes brillo {
+    from {
+        text-shadow: 0 0 10px #00ff66;
+    }
+    to {
+        text-shadow: 0 0 30px #00ffcc;
+    }
+}
+
+.mensaje {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin: 15px 0 30px;
+    color: #e0ffe0;
+    animation: aparecer 2s ease-in-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- CARRUSEL DE IMÁGENES --- */
+.carrusel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px #00ff99;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.8s ease;
+    will-change: transform;
+}
+
+.slides img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* --- CONTROLES DEL CARRUSEL --- */
+.controles {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.controles button {
+    background: rgba(0, 255, 100, 0.6);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.4em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.controles button:hover {
+    background: rgba(0, 255, 100, 1);
+    transform: scale(1.1);
+}
+
+/* --- BOTONES INFERIORES --- */
+.botones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn {
+    background: linear-gradient(90deg, #004d1a, #00b359);
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 15px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #00ff99;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #00b359, #004d1a);
+    box-shadow: 0 0 25px #00ff99;
+}
+
+/* --- CONFETI --- */
+#confeti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- FONDO NIEBLA --- */
+.fondo-niebla {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('https://i.imgur.com/5QfF1mE.png') repeat;
+    opacity: 0.15;
+    animation: moverNiebla 60s linear infinite;
+    z-index: 1;
+}
+
+@keyframes moverNiebla {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 2em;
+    }
+
+    .mensaje {
+        font-size: 1em;
+    }
+
+    .slides img {
+        height: 220px;
+    }
+
+    .controles button {
+        font-size: 1.2em;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tarjeta {
+        padding: 25px;
+    }
+
+    .titulo {
+        font-size: 1.8em;
+    }
+
+    .slides img {
+        height: 200px;
+    }
+}
+.seccion-video {
+    margin: 40px auto;
+    text-align: center;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 700px;
+    box-shadow: 0 0 25px rgba(0, 255, 100, 0.3);
+}
+
+.seccion-video h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.video-contenedor video,
+.video-contenedor iframe {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 100, 0.4);
+}
